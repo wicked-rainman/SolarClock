@@ -36,3 +36,15 @@ There will probably be two components in all of this:
 - The HM1750 on the client has been set up so it only has a 1mm vertical view of the sky (from an elevation of 10 degrees through to 65 - the minimum and maximum throughout the year). The container box for the sensor looks odd, but there is a reason behind this. Obviously, the closer the sensor is to the apeture, the more of the sky can be seen (Think peeping through a keyhole). Given that the stepper is being advanced by one degree at a time, it seemed to make sense for the sensor view to be restricted. I have no idea if this is right!). In theory, 360mm circle circumference means 57.3mm radius - thus the size and shape.  
 - The pulley ratio on the stepper server is 3:1 - I.E, the stepper motor has to rotate three times in order for the output pulley (the base) to rotate once. The timing disc has 60 slots in it - giving 120 pulses (60 on and 60 off) per revolution. 120 x 3 = 360. The stepper motor seems to take 40 odd steps to clear a slot and around 20 to clear each space. Part of the reason for this difference is that the top edges of the space segments are narrower than the bottom. Using Tinkercad I couldn't see a way round this issue - but I don't believe it's going to matter much.  
 - The Stepper client and server communicate over WiFi using UDP. This removes the need for any wiring between the stepper base and rotator. I decided to use UDP in order to reduce cpu loads. Communication re-tries are seen, but the current code seems to address this shortfall.
+```mermaid
+graph TD;
+    StepperClient-->UDPRotateRequest;
+    UDPRotateRequest-->StepperServer;
+    StepperServer-->UDPRotateAck;
+    UDPRotateAck-->StepperClient
+    StepperClient-->LuxReading;
+    StepperClient-->Azimuth;
+    LuxReading-->UDPBroadcast;
+    Azimuth-->UDPBroadcast;
+    UDPBroadcast-->MobilePhone;
+```
