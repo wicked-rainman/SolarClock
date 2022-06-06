@@ -52,3 +52,5 @@ sequenceDiagram
     Note right of StepperClient: Sweep 50-310 complete
     StepperClient->>UDPBroadcast: Azimuth with max Lux
 ```
+- The apeture box face must be pointing north. When the front button on the M5Stick is pressed, degree position zero is assumed and the rotate to 50 degrees is initiated (after a short pause). The scan for the brightest bearing then takes place.  I tried using an electronic compass to get bearings, but all attempts resulted in poor accuracy readings which is why I moved back to using a timing disc.
+- Now I just need to wait for a sunny day to see if it works. That could be quite a while.
