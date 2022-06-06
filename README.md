@@ -1,4 +1,5 @@
 # SolarClock
+[Ths solar clock]{images/SolarClock.jpg)
 
 Not to be confused with a clock that's powered by solar energy. That's too useful. Instead, this project represents an attempt at calculating what the time is based on the position of the sun. Yes, you could look at your watch, get the time from the Internet, listen to the radio or even look at a classic garden sun dial. That's not the point. I won't pretend this project has any value - It's more of a nonsense machine, but I think it will be interesting to see how accurate a time can be calculated by using a bunch of electronic hardware and 3D printed parts.
  
