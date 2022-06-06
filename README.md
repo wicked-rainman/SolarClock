@@ -4,6 +4,6 @@ Not to be confused with a clock that's powered by solar energy. That's too usefu
  
 There will probably be two components in all of this:
 - A "Stepper motor server" being driven via an M5Atom-matrix, although any esp32/Arduino type platform would work. I chose the Matrix because I had one spare and could make use of the LED array for informative visual effects.
-- A "Stepper client" that will read light values and instruct the server how far to rotate after each reading. This component is based round an M5Stick because it's got a built in battery which removes the need for trailing wires.
+- A "Stepper client" that will read light values and instruct the server how far to rotate after each reading. This component is based round an M5Stick because it's got a built in battery which removes the need for trailing wires on a rotating platform.
 
 This is a work in progress
