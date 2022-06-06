@@ -41,15 +41,17 @@ sequenceDiagram
     participant StepperServer
     participant StepperClient
     participant UDPBroadcast
+    Note left of StepperClient: Press M5Stick<BR/> Button A.
     StepperClient->>StepperServer: Rotate to 50 North, UDP port 5001
     StepperServer->>StepperClient: Ack on UDP port 5002, now pointing 50 North
     StepperClient->>StepperServer: Rotate request for 1 degree clockwiseff (UDP port 5001)
     activate StepperClient
-    Note right of StepperClient: Repeat untill 310 degrees
+    Note right of StepperServer: Repeat in 1 degree<br>increments until<BR/>310 degrees reached.
     StepperClient->>UDPBroadcast: Lux and Azimuth values
+    Note left of UDPBroadcast: UDP Broadcast<BR/>on local WiFi network<BR/> port 5003
     StepperServer->>StepperClient: Rotate 1 degree Ack, (UDP 5002)
     deactivate StepperClient
-    Note right of StepperClient: Sweep 50-310 complete
+    Note right of StepperServer: Sweep of <br>50-310<br>completed.
     StepperClient->>UDPBroadcast: Azimuth with max Lux
 ```
 - The apeture box face must be pointing north. When the front button on the M5Stick is pressed, degree position zero is assumed and the rotate to 50 degrees is initiated (after a short pause). The scan for the brightest bearing then takes place.  I tried using an electronic compass to get bearings, but all attempts resulted in poor accuracy readings which is why I moved back to using a timing disc.
