@@ -3,7 +3,7 @@
 
 This project shouldn't be confused with a plan to design a clock that's powered by solar energy. That would be just too useful. Instead, it represents an attempt at calculating the time based on the position of the sun. Yes, you could look at your watch, get the time from the Internet, listen to the radio or even look at a classic garden sun dial. That's not the point. 
 
-I can't pretend this thing will have any value - it's more of a nonsense machine born out of boredom. Regardless, I do think it will be interesting to see how accurately time can be calculated using a bunch of electronics and some 3D tat.
+I can't pretend this thing will have any value - it's more of a nonsense machine bred out of boredom. Regardless, I do think it will be interesting to see how accurately time can be calculated using a bunch of electronics and some 3D tat.
  
 There will probably be two components in all of this:
 
