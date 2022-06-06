@@ -10,7 +10,7 @@ There will probably be two components in all of this:
 
 ## Components - Stepper motor server
 
-- M5Atom matrix (The Stepper motor WiFi server platform)
+- M5Atom matrix (*The Stepper motor WiFi server platform*)
 - 28BYJ-48 5V stepper motor
 - Infra-red photo interrupter sensor
 - Round button-type spirit level
@@ -18,7 +18,7 @@ There will probably be two components in all of this:
 - GT2 20 tooth belt pulley
 - GT1 60 tooth belt pulley
 - 5mm brass rod
-- Pulley tensioner bearing (14mm od, 5mm id)
+- Pulley tensioner bearing (*14mm od, 5mm id*)
 - 3d M3 inserts (12)
 - Assortment of M3 machine screws
 - 3D printed components - as stored in the STL directory
@@ -27,7 +27,7 @@ There will probably be two components in all of this:
 ## Components - Stepper client
 
 - M5Stickc (I'm using the PLUS variant)
-- BH1750 light sensor (in I2C mode)
+- BH1750 light sensor (*in I2C mode*)
 
 ## Notes:
 
