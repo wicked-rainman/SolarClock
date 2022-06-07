@@ -9,8 +9,8 @@ I can't pretend when I finish this it will have much value - it's more of a nons
  
 There will probably end up being two components in all of this:
 
-- A "Stepper motor server" being driven via an M5Atom-matrix, although any esp32/Arduino type platform would do. I chose the Matrix because I had one spare and could make use of the LED array for informative visual effects.
-- A "Stepper client" that will read light values and instruct the server how far to rotate after each reading. This component is based round an M5Stick because it's got a built in battery that negates the need for trailing wires being dragged round on a rotating platform.
+- A "Stepper motor server" being driven via an M5Atom-matrix, although any esp32/Arduino type platform would do. I chose the Matrix because I had one spare and could make use of the LED array for added glitz.
+- A "Stepper client" that will read light values and instruct the server how far to rotate after each reading. This component is based round an M5Stick because it's got a built in battery. This negates the need for trailing wires being dragged round by the rotating platform.
 
 When I started out on this venture, I tried using an I2C based compass (LSM303) for azimuth alignment. It claimed a 0.1 degree resolution, but after some failed tests and a bit of reading I discovered that although the resolution is good, accuracy is +-5 degrees. Given that the earth rotates through 11 degrees in an hour, It just wouldn't provide the accuracy I was looking for. So, in the end I went back to the drawing board and came up with a timing disk design. The main drawback of this approach is you need to ensure the light sensing unit is facing directly north when you press the go button. 
 
@@ -39,10 +39,10 @@ When I eventually abandon this project I'm probably going to try and design a di
 
 - This is a work in progress !!
 - In the UK, the sun can rise at 50 degrees east and set at 310 west (this is it's local maximum azimuth). The stepper motor server has therefore been set to only sweep between these angles, one degree (but 30 odd stepper motor half steps) at a time. In theory, this should allow for a resolution of about 2 mins, but I doubt that such accuracy is achievable.
-- The HM1750 light sensor on the client has been set up so it only has a 1mm vertical view of the sky (from an elevation of 10 degrees through to 65 - the minimum and maximum throughout the year). The container box for the sensor looks odd, but there is a reason behind this. Obviously, the closer the sensor is to the apeture, the more of the sky can be seen (Think peeping through a keyhole). Given that the stepper is being advanced by one degree at a time, it seemed to make sense for the sensor view to be similarly restricted. I have no idea if this is right, but it's only another 3d print away from being correctable!. In theory, 360mm circle circumference means 57.3mm radius - thus the odd size and shape.  
+- The HM1750 light sensor on the client has been set up so it only has a 1mm vertical view of the sky (from an elevation of 10 degrees through to 65 - the minimum and maximum throughout the year). The container box for the sensor looks odd, but there is a reason behind this. Obviously, the closer the sensor is to the apeture, the more of the sky can be seen (Think peeping through a keyhole). Given that the stepper platform is being advanced by one degree at a time, it seemed to make sense for the sensor view to be similarly restricted. I have no idea if this is right, but it's only another 3d print away from being correctable!. In theory, 360mm circle circumference means a 57.3mm viewing radius - thus the odd size and shape.  
 - The pulley ratio on the stepper server is 3:1 - I.E, the stepper motor has to rotate three times in order for the output pulley (the base) to rotate once. The timing disc has 60 slots in it - giving 120 pulses (60 on and 60 off) per revolution. 120 x 3 = 360. The stepper motor seems to take 40 odd steps to clear a slot and around 20 to clear each space. Part of the reason for this difference is that the top edges of the space segments are narrower than the bottom. Using Tinkercad I couldn't see a way round this issue - but I don't believe it's going to matter that much. If it does become problematic the difference can be catered for in the code.  
-- The Stepper client and server communicate over WiFi using UDP. With the M5Stick's built in battery this removes the need for any wiring between the stepper base and rotator. I decided to use UDP in order to reduce cpu loads. Communication re-tries are seen, but the current code seems to address this shortfall.
--
+- The Stepper client and server communicate over WiFi using UDP. What with the M5Stick's built in battery this removes any need for wiring between the stepper base and rotator. I decided on UDP to reduce cpu loads. Communication re-tries are seen, but the current code seems to address this shortfall.
+
 ```mermaid
 sequenceDiagram
     participant StepperClient
@@ -61,6 +61,6 @@ sequenceDiagram
     StepperClient->>UDPBroadcast: Azimuth with max Lux result
 ```
 - The apeture box face must be pointing north. When the front button on the M5Stick is pressed, degree position zero is assumed and the rotate to 50 degrees is initiated (after a short pause). The scan for the brightest bearing then takes place.
-- At some stage, it could be that the HM1750 sensor will need to be vertically rotated from 10 degrees through to 65 degrees (The minimum and maximum UK altitude) during the scan. Doing this might provide better resolution as to where the sun really is - I'll only know after doing some tests.
+- At some stage, it could be that the HM1750 sensor will need to be vertically rotated from 10 to 65 degrees during the scan. Doing this might provide better resolution as to where the sun really is - I'll only know after doing some tests.
 - Now I just need to wait for a sunny day to see if it works. That could be quite a while.
 - [Tinkercad](https://www.tinkercad.com/things/aQJdY34zP4q) files available here if you want to modify the design
