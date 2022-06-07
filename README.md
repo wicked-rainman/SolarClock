@@ -60,7 +60,7 @@ sequenceDiagram
     Note left of StepperClient: Sweep of <br>50-310<br>completed.
     StepperClient->>UDPBroadcast: Azimuth with max Lux result
 ```
-- The apeture box face must be pointing north. When the front button on the M5Stick is pressed, degree position zero is assumed and the rotate to 50 degrees is initiated (after a short pause). The scan for the brightest bearing then takes place.
+- The apeture box face must be pointing north. When the front button on the M5Stick is pressed, degree position zero is assumed. The rotate to the 50 degrees start point (after a short pause) is then initiated. After that, the "1 degree at a time" step scan for the brightest bearing takes place.
 - At some stage, it could be that the HM1750 sensor will need to be vertically rotated from 10 to 65 degrees during the scan. Doing this might provide better resolution as to where the sun really is - I'll only know after doing some tests.
 - Now I just need to wait for a sunny day to see if it works. That could be quite a while.
 - [Tinkercad](https://www.tinkercad.com/things/aQJdY34zP4q) files available here if you want to modify the design
