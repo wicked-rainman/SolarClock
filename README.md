@@ -12,9 +12,10 @@ There will probably end up being just two components in all of this:
 - A "Stepper motor server" being driven via an M5Atom-matrix, although any esp32/Arduino type platform would do. I chose the Matrix because I had one spare and could make use of the LED array for added glitz.
 - A "Stepper client" that will read light values and instruct the server how far to rotate after each reading. This component is based round an M5Stick because it's got a built in battery. This helps negate the need for trailing wires being dragged round by the rotating platform.
 
-When I started out on this venture, I tried using an I2C based compass (LSM303) for azimuth alignment. It claimed a 0.1 degree resolution, but after some failed tests and a bit of reading I discovered that although the resolution is good, accuracy is +-5 degrees. Given that the earth rotates through roughly 15 degrees in an hour, It just wouldn't provide the accuracy I'm looking for. So, in the end I went back to the drawing board and came up with a timing disk design. The main drawback of this approach is you need to ensure the light sensing unit is facing directly north whenever you press the inevitable "go" button. 
+When I started out on this venture, I tried using an I2C based compass (LSM303) for azimuth alignment. It claimed a 0.1 degree resolution, but after some failed tests and a bit of reading I discovered that although the resolution is good, accuracy is +-5 degrees. Given that the earth rotates through roughly 15 degrees in an hour, It just wouldn't provide the accuracy I'm looking for. So, in the end I went back to the drawing board and came up with a timing disk design. The main drawback of this approach is you need to ensure the light sensing unit is facing true north whenever you press the inevitable "go" button. 
 
-When I eventually abandon this project I'm probably going to try and design a digital compass (with moving parts) that might actually do the job.
+## North
+Finding true north is problematic. You could use a normal magnetic compass and deal with the offset, but from what research I've done so far this looks a little vague (Magnetic north is always on the move). I'm still considering adding some form of gnomon to the rotator base so it can be aligned (after performing solar observations), but that looses the semi-instant gratification of just pushing a button I've also been considering a gyro, but that leads towards the chicken and egg scenario of still not knowing where true north is. For now I'm going to carry on testing commercially availble magnetometers to see if there's something better than the LSM303. Watch this space.
 
 ## Components - Stepper motor server
 
@@ -34,6 +35,7 @@ When I eventually abandon this project I'm probably going to try and design a di
 
 - M5Stickc (I'm using the PLUS variant)
 - BH1750 light sensor (*in I2C mode*)
+- Some (as yet to be decided) magnetometer
 
 ## Notes:
 
@@ -60,10 +62,8 @@ sequenceDiagram
     Note left of StepperClient: Sweep of <br>50-310<br>completed.
     StepperClient->>UDPBroadcast: Azimuth with max Lux result
 ```
-- The apeture box face must be pointing towards true north. When the front button on the M5Stick is pressed, degree position zero is assumed. The rotate to the 50 degrees start point (after a short pause) is then initiated. After that, the "1 degree at a time" step scan for the brightest bearing takes place.
-
-- Finding true north is problematic. You could use a normal magnetic compass and deal with the offset, but from what research I've done so far this looks a little vague (Magnetic north is always on the move). I'm still considering adding some form of gnomon to the rotator base so it can be aligned (after performing solar observations), but that looses the semi-instant gratification of just pushing a button I've also been considering a gyro, but that leads towards the chicken and egg scenario of still not knowing where true north is. For now I'm going to carry on testing commercially availble magnetometers to see if there's something better than the LSM303. Watch this space.
+- As already highlighted, the apeture box face must be pointing towards true north. When the front button on the M5Stick is pressed, degree position zero is assumed. The rotate to the 50 degrees start point (after a short pause) is then initiated. After that, the "1 degree at a time" step scan for the brightest bearing takes place.
 
 - At some stage, it could be that the HM1750 sensor will need to be vertically rotated from 10 to 65 degrees during the scan. Doing this might provide better resolution as to where the sun really is - I'll only know after doing some tests.
-- Now I just need to wait for a sunny day to see if it works. That could be quite a while.
+- Now I just need to wait for a sunny day to see if any of this can be made to work. That could be quite a while.
 - [Tinkercad](https://www.tinkercad.com/things/aQJdY34zP4q) files available here if you want to modify the design
