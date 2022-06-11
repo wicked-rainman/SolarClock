@@ -1,7 +1,7 @@
 # SolarClock
 <img src="./images/SolarClock.jpg" width="800" height="600">
 
-This project shouldn't be confused with a plan to design a clock powered by solar energy. That would be just too useful. Instead, it represents an attempt at calculating the time based on the position of the sun in the sky. 
+This project shouldn't be confused with a plan to design a clock powered by solar energy. Instead, it represents an academic attempt at calculating the time based on the position of the sun in the sky.
 
 Yes, you could look at your watch, listen for the pips on the radio or even look at a classic garden sun dial. That's not the point. 
 
