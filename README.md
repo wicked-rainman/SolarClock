@@ -1,9 +1,9 @@
 # SolarClock
 <img src="./images/SolarClock.jpg" width="800" height="600">
 
-This project shouldn't be confused with a plan to design a clock powered by solar energy. Instead, it represents an academic attempt at calculating the time based on the position of the sun in the sky.
+This project shouldn't be confused with a plan to design a clock powered by solar energy. That's not what this is about. Instead, it represents an academic attempt at calculating the time based on the position of the sun in the sky.
 
-Yes, you could look at your watch, listen for the pips on the radio or even glance at your mobile phone - but this isn't an attempt to replace those reliable sources. It's more about trying to observe the local environment and making calculations baised on what can be seen.   
+Yes, you could look at your watch, listen for the pips on the radio or even glance at your mobile phone - but this isn't a move to try and replace those reliable sources. It's more about trying to observe the local environment and making calculations baised on what can be seen.   
 
 I can't pretend when this is finish it will have much value - it's more of a nonsense machine bred out of boredom. Regardless, I do think it will be interesting to see how accurately time can be calculated using a bunch of cheap electronics and some 3D printed tat.
  
@@ -65,5 +65,5 @@ sequenceDiagram
 - As already highlighted, the apeture box face must be pointing towards true north. When the front button on the M5Stick is pressed, degree position zero is assumed. The rotate to the 50 degrees start point (after a short pause) is then initiated. After that, the "1 degree at a time" step scan for the brightest bearing takes place.
 
 - At some stage, it could be that the HM1750 sensor will need to be vertically rotated from 10 to 65 degrees during the scan. Doing this might provide better resolution as to where the sun really is - I'll only know after doing some tests.
-- Now I just need to wait for a sunny day to see if any of this can be made to work. That could be quite a while.
+- Now I just need to decide if I'm going to include a compass in the build and wait for a sunny day to see if this works. That could be quite a while.
 - [Tinkercad](https://www.tinkercad.com/things/aQJdY34zP4q) files available here if you want to modify the design
