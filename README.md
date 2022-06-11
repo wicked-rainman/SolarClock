@@ -3,11 +3,11 @@
 
 This project shouldn't be confused with a plan to design a clock powered by solar energy. Instead, it represents an academic attempt at calculating the time based on the position of the sun in the sky.
 
-Yes, you could look at your watch, listen for the pips on the radio or even look at a classic garden sun dial. That's not the point. 
+Yes, you could look at your watch, listen for the pips on the radio or even glance at your mobile phone - but this isn't an attempt to replace those reliable sources. It's more about trying to observe the local environment and making calculations baised on what can be seen.   
 
-I can't pretend when I finish this it will have much value - it's more of a nonsense machine bred out of boredom. Regardless, I think it will be interesting to see how accurately time can be calculated using a bunch of cheap electronics and some 3D tat.
+I can't pretend when this is finish it will have much value - it's more of a nonsense machine bred out of boredom. Regardless, I do think it will be interesting to see how accurately time can be calculated using a bunch of cheap electronics and some 3D printed tat.
  
-There will probably end up being just two components in all of this:
+There will probably end up being just two main components in all of this:
 
 - A "Stepper motor server" being driven via an M5Atom-matrix, although any esp32/Arduino type platform would do. I chose the Matrix because I had one spare and could make use of the LED array for added glitz.
 - A "Stepper client" that will read light values and instruct the server how far to rotate after each reading. This component is based round an M5Stick because it's got a built in battery. This helps negate the need for trailing wires being dragged round by the rotating platform.
@@ -15,7 +15,7 @@ There will probably end up being just two components in all of this:
 When I started out on this venture, I tried using an I2C based compass (LSM303) for azimuth alignment. It claimed a 0.1 degree resolution, but after some failed tests and a bit of reading I discovered that although the resolution is good, accuracy is +-5 degrees. Given that the earth rotates through roughly 15 degrees in an hour, It just wouldn't provide the accuracy I'm looking for. So, in the end I went back to the drawing board and came up with a timing disk design. The main drawback of this approach is you need to ensure the light sensing unit is facing true north whenever you press the inevitable "go" button. 
 
 ## North
-Finding true north is problematic. You could use a normal magnetic compass and deal with the offset, but from what research I've done so far this looks a little vague (Magnetic north is always on the move). I'm still considering adding some form of gnomon to the rotator base so it can be aligned (after performing solar observations), but that looses the semi-instant gratification of just pushing a button I've also been considering a gyro, but that leads towards the chicken and egg scenario of still not knowing where true north is. For now I'm going to carry on testing commercially availble magnetometers to see if there's something better than the LSM303. Watch this space.
+Finding true north is problematic. You could use a normal magnetic compass and deal with the offset, but from what research I've done so far this looks a little vague (Magnetic north is always on the move). I'm still considering adding some form of gnomon to the rotator base so it can be aligned (after performing solar observations), but that looses the semi-instant gratification of just pushing a button I've also been considering a gyro, but that leads towards the chicken and egg situation of still not actually knowing where true north is in the first place. For now I'm going to carry on testing commercially availble magnetometers to see if there's something better than the LSM303. Watch this space.
 
 ## Components - Stepper motor server
 
