@@ -59,7 +59,10 @@ Finding true north is problematic. You could use a normal magnetic compass and d
 <p align="center">
 <img src="./images/TimingWheel.png">
 </p>
- 
+ <p align="center">
+ <b>The mark and space variation</b>
+</p>
+
 - The Stepper client and server communicate over WiFi using UDP. What with the M5Stick's built in battery this removes any need for wiring between the stepper base and rotator. I decided on UDP rather than TCP to reduce cpu loads. Communication re-tries are seen, but the current code seems to address this shortfall.
 
 ```mermaid
