@@ -1,6 +1,8 @@
 # SolarClock
+<p align="center">
 <img src="./images/SolarClock.jpg" width="800" height="600">
-
+</p>
+ 
 This project shouldn't be confused with a plan to design a clock powered by solar energy. That's not what this is about. Instead, it represents an academic attempt at calculating the time based on the position of the sun in the sky.
 
 Yes, you could look at your watch, listen for the pips on the radio or even glance at your mobile phone - but this isn't a move to try and replace those reliable sources. It's more about trying to observe the local environment and making calculations baised on what can be seen.   
@@ -16,8 +18,16 @@ When I started out on this venture, I tried using an I2C based compass (LSM303) 
 
 ## North
 Finding true north is problematic. You could use a normal magnetic compass and deal with the offset, but from what research I've done so far this looks a little vague (Magnetic north is always on the move). I'm still considering adding some form of gnomon to the rotator base so it can be aligned (after performing solar observations), but that looses the semi-instant gratification of just pushing a button I've also been considering a gyro, but that leads towards the chicken and egg situation of still not actually knowing where true north is in the first place. I've read some of the physics and I'm well aware that a gyro can achieve this because it's affected by the rotation of the earth. Such a gyro is really expensive and I don't think I'm capable of constructing one of my own. For now I'm going to carry on testing commercially availble magnetometers to see if there's something better than the LSM303. Watch this space.
-- 12th June 2022. Finished an evaluation of another magnetrometer, the BMM150. I chose this one to test because it's actually sold as a viable and accurate compass. In my usecase, this still proved to be unreliable. I have a suspicion that even after calibration my environment is too electrically noisy. I'm planning to drop the idea of using any form of on-board electronic compass.
-- Going back to the drawing board, I've since discovered that for my geographic area, the magnetic declination is currently 0.12 mins, i.e. 0.2 degrees. I'm heading towards the more simple concept of just drawing an accurate east/west line and positioning the rotating head at a right angle. I can draw this rhumb line "offline" so there is no equipment interference and for now, just accept the accuracy of a normal bearing compass.    
+- 12th June 2022. Finished an evaluation of another magnetometer, the BMM150. I chose this one to test because it's actually sold as a viable and accurate compass. In my usecase, this still proved to be unreliable. I have a suspicion that even after calibration the environment is too electrically noisy. I'm currently planning to drop the idea of using any of these i2c devices, although I might change my mind at a later stage. I'm now thinking there may need to be a physically seperate component to this project in order to perform the initial allignment. 
+
+- Going back to the drawing board, I've since discovered that for my geographic area, the magnetic declination is currently 0.12 mins, i.e. 0.2 degrees. I'm heading towards the more simple concept of just drawing an accurate east/west line and positioning the rotating head at a right angle. I can draw this rhumb line "offline" so there is no equipment interference and for now, just accept the accuracy of a normal bearing compass. 
+
+<p align="center">
+<img src="./images/Sundial.jpg" width="800" height="600">
+</p>
+
+- Performed some tests in the back garden to correlate the whole magnetic north/true north solar time theory. I don't know why, but I'm surprised at just how accurate the results are. This gives me some confidence that I should be able to correctly calculate the time within at least a 15 min window. 
+   
 
 ## Components - Stepper motor server
 
