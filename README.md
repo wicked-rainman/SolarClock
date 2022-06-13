@@ -79,7 +79,7 @@ sequenceDiagram
     StepperServer->>StepperClient: Rotate 1 degree Ack, (UDP 5002)
     StepperClient->>UDPBroadcast: Lux and Azimuth values (UDP port 5003)
     deactivate StepperClient
-    Note left of StepperClient: Sweep of <br>50-310<br>completed.
+    Note left of StepperClient: Sweep completed
     StepperClient->>UDPBroadcast: Azimuth with max Lux result
 ```
 - As already highlighted, the apeture box face must be pointing towards true north. When the front button on the M5Stick is pressed, degree position zero is assumed. The rotate to the 50 degrees start point (after a short pause) is then initiated. After that, the "1 degree at a time" step scan for the brightest bearing takes place.
