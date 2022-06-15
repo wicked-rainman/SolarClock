@@ -91,3 +91,8 @@ sequenceDiagram
 - At some stage, it could be that the HM1750 sensor will need to be vertically rotated from 10 to 65 degrees during the scan. Doing this might provide better resolution as to where the sun really is - I'll only know after doing some tests.
 
 - [Tinkercad](https://www.tinkercad.com/things/aQJdY34zP4q) files available here if you want to modify the design
+
+
+# Interim results
+
+On the 15th June 2022 I managed to get a set of tests done. Bright sunny day with a clear sky. I performed the first test at 09:23. According to the tables I'm using as a reference, at 09:20 the sun should have an azimuth of 100.79 and 09:25, 101.9. At 09:23, the sensor returned a value of 54612 for bearing 100 and 51554 for 101. All other light readings were 3 digits. The second test was run at 09:26. Again, the tables show azimuth of 101.9 at 09:25 and 103.2 at 09:30. For bearing 101 I got a value of 3613, for 102 the value was 18735 and for 103, 13504. Here, the highest bearing was 102. I'm very pleased with the results because with these short tests I seem to be well within a +/- 5 mins tolerance. That's better than I initially expected. Obviously I would have to embed some lookup table in the code, but for now I'm going to focus on trying to improve the accuracy. Again, watch this space!  
