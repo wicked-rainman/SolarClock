@@ -30,7 +30,7 @@ Finding true north is problematic. You could use a normal magnetic compass and d
 <img src="./images/Sundial.jpg" width="800" height="600">
 </p>
 
-- Performed some cross check tests in the back garden to correlate the whole magnetic north/true north solar time theory. I don't know why, but I'm surprised at just how accurate the results are. This gives me some confidence that I should be able to correctly calculate the time within at least a 15 min window. 
+- Performed some cross check tests in the back garden to correlate the whole magnetic north/true north solar time theory. I don't know why, but I'm surprised at just how accurate the results are. This gives me some confidence that I should be able to correctly calculate the time within at least a 15 min window. Clearly, my earlier views were just plain wrong! 
    
 
 ## The Components - Stepper motor server
