@@ -5,7 +5,7 @@
  
 This project shouldn't be confused with a plan to design a clock powered by solar energy. That's not what this is about. Instead, it represents an academic attempt at calculating the time based on the position of the sun in the sky.
 
-Yes, you could look at your watch, listen for the pips on the radio or even glance at your mobile phone - but this isn't a move to try and replace those reliable sources. It's more about trying to observe the local environment and making calculations based on what can be seen.   
+Yes, you could look at your watch, listen for the pips on the radio or even glance at your mobile phone - but this isn't a move to try and replace those reliable sources. It's more about trying to observe the local environment and making calculations around what can be seen.   
 
 I can't pretend when this is finished it will have much value - it's more of a nonsense machine bred out of boredom. Regardless, I do think it will be interesting to see how accurately time can be calculated using a bunch of cheap electronics and some 3D printed tat.
  
